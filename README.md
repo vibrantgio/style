@@ -1,6 +1,6 @@
 # style
 
-The type scale of [VibrantGio](https://github.com/vibrantgio), a design system
+The type scale of [Vibrant Gio](https://github.com/vibrantgio), a design system
 for native desktop applications on macOS, Windows and Linux, written in pure Go
 on [Gio](https://gioui.org) — fourteen named text styles and the font
 collection they are drawn with, in one file of about forty lines.
@@ -15,7 +15,7 @@ line limit and a truncator — to hand to
 why every demo and workbench application in the organization that draws text
 directly imports exactly these two modules together.
 
-**This module is frozen.** It is the Material Design 2 scale, and VibrantGio
+**This module is frozen.** It is the Material Design 2 scale, and Vibrant Gio
 targets MD3; more importantly the scale is a package-level table rather than a
 theme value, so it cannot vary with the theme, the platform or the user's
 preferences. ADR-003 replaces it with a `Typography` theme token. Nothing here
