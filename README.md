@@ -18,9 +18,12 @@ directly imports exactly these two modules together.
 **This module is frozen.** It is the Material Design 2 scale, and Vibrant Gio
 targets MD3; more importantly the scale is a package-level table rather than a
 theme value, so it cannot vary with the theme, the platform or the user's
-preferences. ADR-003 replaces it with a `Typography` theme token. Nothing here
-will be extended, and Phase C marks every symbol `Deprecated:` — see Status
-before building on it.
+preferences. ADR-003 supersedes it with the
+[`spectrum/tokens`](https://github.com/vibrantgio/spectrum) `Typography` theme
+token, and every symbol here carries a `Deprecated:` marker naming its MD3
+replacement. The module is kept for the deprecation window so existing imports
+keep compiling; nothing here will be extended, and only correctness fixes land
+— see Status before building on it.
 
 ## Where it sits
 
@@ -52,7 +55,7 @@ One package, at the module root.
 | Symbol | |
 | --- | --- |
 | `FontFaces()` | The five upright Roboto weights the scale names — Thin, Light, Normal, Medium, Bold — as `[]textdraw.FontFace`, which is a type *alias* for `gioui.org/font.FontFace`, so it drops straight into `text.WithCollection`. |
-| `H1` … `H6` | Headings, 96/96/48/34/24/20 sp, single-line, ellipsis-truncated. `H1` is Thin, `H2` is Light, the rest are Normal. |
+| `H1` … `H6` | Headings, 96/60/48/34/24/20 sp, single-line, ellipsis-truncated. `H1` is Thin, `H2` is Light, the rest are Normal. |
 | `Subtitle1`, `Subtitle2` | 16 sp Normal and 14 sp Medium, single-line. |
 | `BodyText1`, `BodyText2` | 16 sp and 14 sp Normal, and the only two styles with `MaxLines: 0` — the only two that wrap. |
 | `Button`, `SmallButton` | 14 sp Medium and 12 sp Bold, single-line. |
@@ -129,14 +132,14 @@ source, not estimated.
   two scales are kept in step by hand. So an application that styles its own
   text with `H5` and drops a `cadence` heading beside it is mixing two type
   systems. Phase C of the [org plan](https://github.com/vibrantgio/.github)
-  unifies them: C1.1 puts a full MD3 `Typography` token in `spectrum/tokens`
-  — typeface, weight, size, line height and tracking per role — C1.3 puts it on
-  the theme, and C1.4 marks every symbol here `Deprecated:` with that
+  unifies them: C1.1 put a full MD3 `Typography` token in `spectrum/tokens`
+  — typeface, weight, size, line height and tracking per role — C1.3 put it on
+  the theme, and C1.4 marked every symbol here `Deprecated:` with that
   replacement.
-- **`H1` and `H2` are both 96 sp.** MD2's H2 is 60. The two differ only in
-  weight — Thin and Light — so a document that uses both gets no size
-  hierarchy at all. C1.4 fixes the number on the deprecated path; do not carry
-  it forward.
+- **`H2` was 96 sp until C1.4 — the same as `H1`.** MD2's H2 is 60, and the
+  two differed only in weight — Thin and Light — so a document using both got
+  no size hierarchy at all. It is 60 now, which means a program pinned to a
+  version before the fix draws `H2` at 96, not the 60 this README documents.
 - **The scale cannot vary.** These are package-level `var`s, so there is one
   scale per binary: no theme, no density, no platform and no accessibility
   preference can change a size. `prism/a11y` publishes the OS text-scaling and
