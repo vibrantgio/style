@@ -22,13 +22,19 @@ theme value, so it cannot vary with the theme, the platform or the user's
 preferences. ADR-003 supersedes it with the
 [`spectrum/tokens`](https://github.com/vibrantgio/spectrum) `Typography` theme
 token, and every symbol here carries a `Deprecated:` marker naming its MD3
-replacement. The module is kept for the deprecation window so existing imports
-keep compiling; nothing here will be extended, and only correctness fixes land
-— see Status before building on it. The window has an end: F3.4 of the
-[org plan](https://github.com/vibrantgio/.github) (planned, not yet landed)
-archives this repository at v0.0.6 — the freeze ends by archival, not
-deletion, so the tag and the import path keep working forever; the repository
-just stops changing.
+replacement. The module was kept for the deprecation window so existing
+imports kept compiling; nothing here will be extended, and only correctness
+fixes land — see Status before building on it.
+
+**The window is closed.** F3.4 of the
+[org plan](https://github.com/vibrantgio/.github) landed on 2026-08-06 and
+ended it. G-F1 had already moved the last in-org consumers off this module,
+so there was nothing left to sweep: the deprecation shims other repositories
+carried were deleted in their own major releases, and style, which is
+nothing *but* deprecated surface, is instead **archived at v0.0.6**. It is
+frozen there and will never be re-tagged. The freeze ends by archival, not
+deletion — the v0.0.6 tag and the import path keep resolving forever; the
+repository just stops changing. There will be no v0.0.7.
 
 ## Where it sits
 
@@ -45,8 +51,9 @@ migrated every [workbench](https://github.com/vibrantgio/workbench)
 application and every `mvu/example` program off it. What remains is eleven
 example mains in the support repositories — four under
 `ivg/raster/gio/example`, three under `svg/driver/gio/example` and the four
-`traer/gio` demos. F3.4 (planned) archives the repository with those still
-pointing at v0.0.6, which keeps resolving after archival.
+`traer/gio` demos. F3.4 archived the repository with those still pointing at
+v0.0.6, which keeps resolving after archival — which is the whole point of
+archiving rather than deleting.
 
 ```sh
 go get github.com/vibrantgio/style
@@ -116,8 +123,14 @@ typography, and the pitfalls that are not guessable:
 ## Status
 
 Honest about what does not work yet. Every number below is measured against the
-source, not estimated.
+source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
 
+- **This module is archived at v0.0.6 and frozen there.** ADR-003 opened a
+  deprecation window on it; F3.4 closed the window by archiving the
+  repository rather than sweeping it, because by then G-F1 had moved the
+  last in-org consumer off it and there was nothing left to remove that
+  removing the whole module did not already cover. Every item below is
+  therefore permanent, not pending.
 - **This module was never wired into the component stack, and now never will
   be.** No library source file in prism, pulse, cadence, markdown or spectrum
   imports style; the components style their text from the
