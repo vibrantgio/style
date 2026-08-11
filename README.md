@@ -20,7 +20,7 @@ to as well, until F1 moved them onto the theme's typography.
 targets MD3; more importantly the scale is a package-level table rather than a
 theme value, so it cannot vary with the theme, the platform or the user's
 preferences. ADR-003 supersedes it with the
-[`spectrum/tokens`](https://github.com/vibrantgio/spectrum) `Typography` theme
+[`theme/tokens`](https://github.com/vibrantgio/theme) `Typography` theme
 token, and every symbol here carries a `Deprecated:` marker naming its MD3
 replacement. The module was kept for the deprecation window so existing
 imports kept compiling; nothing here will be extended, and only correctness
@@ -38,7 +38,7 @@ repository just stops changing. There will be no v0.0.7.
 
 ## Where it sits
 
-Tier 0 of the stack — `mvu → spectrum → prism → pulse → cadence → markdown` —
+Tier 0 of the stack — `mvu → theme → prism → pulse → cadence → markdown` —
 and the one intra-tier edge ADR-001's table has to admit by name: style imports
 [font](https://github.com/vibrantgio/font) and
 [textdraw](https://github.com/vibrantgio/textdraw), both also tier 0. The
@@ -82,7 +82,7 @@ the twelve heading and label styles cap at one line.
 
 Nothing new should be written against this module — a Vibrant Gio application
 takes its typography from the theme (`Typography.Shaper()` and the MD3 roles;
-see the [spectrum](https://github.com/vibrantgio/spectrum) README). This
+see the [theme](https://github.com/vibrantgio/theme) README). This
 section documents the pattern the remaining consumers use.
 
 Build the shaper once per window, at layer-building scope, and hand it to
@@ -132,9 +132,9 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   removing the whole module did not already cover. Every item below is
   therefore permanent, not pending.
 - **This module was never wired into the component stack, and now never will
-  be.** No library source file in prism, pulse, cadence, markdown or spectrum
+  be.** No library source file in prism, pulse, cadence, markdown or theme
   imports style; the components style their text from the
-  `spectrum/tokens.Typography` theme token Phase C shipped — typeface, weight,
+  `theme/tokens.Typography` theme token Phase C shipped — typeface, weight,
   size, line height and tracking per MD3 role, plus the one shared shaper —
   and C1.4 marked every symbol here `Deprecated:` with that replacement. An
   application that styles its own text with `H5` and drops a `cadence`
@@ -146,7 +146,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   version before the fix draws `H2` at 96, not the 60 this README documents.
 - **The scale cannot vary.** These are package-level `var`s, so there is one
   scale per binary: no theme, no density, no platform and no accessibility
-  preference can change a size. `spectrum/a11y` publishes the OS text-scaling
+  preference can change a size. `theme/a11y` publishes the OS text-scaling
   and reduce-motion preferences and nothing here reads them.
 - **`FontFaces()` returns five of the twelve faces
   [font](https://github.com/vibrantgio/font) ships.** Thin, Light, Normal,
