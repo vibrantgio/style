@@ -38,7 +38,7 @@ repository just stops changing. There will be no v0.0.7.
 
 ## Where it sits
 
-Tier 0 of the stack — `mvu → theme → components → pulse → cadence → markdown` —
+Tier 0 of the stack — `mvu → theme → components → effects → cadence → markdown` —
 and the one intra-tier edge ADR-001's table has to admit by name: style imports
 [font](https://github.com/vibrantgio/font) and
 [textdraw](https://github.com/vibrantgio/textdraw), both also tier 0. The
@@ -132,7 +132,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   removing the whole module did not already cover. Every item below is
   therefore permanent, not pending.
 - **This module was never wired into the component stack, and now never will
-  be.** No library source file in components, pulse, cadence, markdown or theme
+  be.** No library source file in components, effects, cadence, markdown or theme
   imports style; the components style their text from the
   `theme/tokens.Typography` theme token Phase C shipped — typeface, weight,
   size, line height and tracking per MD3 role, plus the one shared shaper —
