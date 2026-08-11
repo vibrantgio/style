@@ -38,14 +38,14 @@ repository just stops changing. There will be no v0.0.7.
 
 ## Where it sits
 
-Tier 0 of the stack — `mvu → theme → prism → pulse → cadence → markdown` —
+Tier 0 of the stack — `mvu → theme → components → pulse → cadence → markdown` —
 and the one intra-tier edge ADR-001's table has to admit by name: style imports
 [font](https://github.com/vibrantgio/font) and
 [textdraw](https://github.com/vibrantgio/textdraw), both also tier 0. The
 layering check permits that single edge rather than renumbering the tier. The
 [organization page](https://github.com/vibrantgio) has the full tier table.
 
-Nothing inside the design system imports style — not prism, not cadence, not
+Nothing inside the design system imports style — not components, not cadence, not
 markdown. Its consumers were all applications, and most of them are gone: F1
 migrated every [workbench](https://github.com/vibrantgio/workbench)
 application and every `mvu/example` program off it. What remains is eleven
@@ -132,7 +132,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   removing the whole module did not already cover. Every item below is
   therefore permanent, not pending.
 - **This module was never wired into the component stack, and now never will
-  be.** No library source file in prism, pulse, cadence, markdown or theme
+  be.** No library source file in components, pulse, cadence, markdown or theme
   imports style; the components style their text from the
   `theme/tokens.Typography` theme token Phase C shipped — typeface, weight,
   size, line height and tracking per MD3 role, plus the one shared shaper —
