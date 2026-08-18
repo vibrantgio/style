@@ -10,12 +10,13 @@ table admits by name: `style`, `font` and `textdraw` are all tier 0, and a
 tier may not otherwise import itself. ADR-003 freezes style rather than
 deleting it, so `check-layers.sh` (B2.3) allows that single pair by name
 instead of renumbering the tier. Its root module imports `font` and
-`textdraw`. No other repository's root module imports it; outside the tier
-table it is imported by the adapter modules `ivg/raster/gio`,
-`svg/driver/gio` and `traer/gio`. Both directions are measured rather than
-typed — `scripts/check-layers.sh --edges` reports the graph and
+`textdraw`. That direction is measured rather than typed —
+`scripts/check-layers.sh --edges` reports the graph and
 `scripts/sync-agents.sh` renders these sentences from it — so correcting
-them here changes nothing.
+them here changes nothing. The other direction is measured too and
+deliberately not written down: the gate checks the graph both ways, but a
+public API's consumers are unknowable, so this file says what its module
+needs and never who needs it.
 
 **Read the canonical guide before you write code against this module.** It is
 the organization's one agent guide — the module inventory with current tags,
@@ -47,8 +48,8 @@ One real bug was fixed rather than inherited: `H1` and `H2` were both 96 sp —
 differed only in weight, so a document using both got no size hierarchy. C1.4
 set `H2` to 60. Do not copy these numbers forward.
 
-Nothing in the design system imports `style`, and that is ADR-003's point
-rather than an accident. What does import it is measured and listed in the
-Layer paragraph above; this note deliberately does not repeat it, because the
-copy that used to live here named four workbench applications that had already
-been migrated off and a demo main under mvu that never imported it at all.
+Do not add a new import of this module anywhere — that freeze is ADR-003's
+point rather than an accident. Nothing here says who imports it today, and
+nothing above does either: a public API's consumers are unknowable, and the
+list that used to live in this note was wrong within a phase of being written,
+naming migrated-off callers and one that had never imported it at all.
