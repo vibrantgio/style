@@ -3,8 +3,8 @@
 // upright Roboto faces they are drawn with.
 //
 // Deprecated: this package is frozen. Its MD2 scale is superseded by the MD3
-// Typography theme token of github.com/vibrantgio/theme/tokens (ADR-003);
-// only correctness fixes land here through the deprecation window.
+// Typography theme token of github.com/vibrantgio/theme/tokens; only
+// correctness fixes land here through the deprecation window.
 package style
 
 import (
