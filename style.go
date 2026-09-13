@@ -2,7 +2,7 @@
 // Gio: fourteen named textdraw.TextStyle values and FontFaces, the five
 // upright Roboto faces they are drawn with.
 //
-// Deprecated: this package is frozen. Its MD2 scale is superseded by the MD3
+// Deprecated: this package is frozen. Its older scale is superseded by the
 // Typography theme token of github.com/vibrantgio/theme/tokens; only
 // correctness fixes land here through the deprecation window.
 package style
@@ -91,7 +91,7 @@ var (
 	Caption = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 12, MaxLines: 1, Truncator: "…"}
 
 	// SmallButton is 12 sp Bold, single line. It is not an MD2 role — this
-	// scale invented it — and it has no counterpart in the MD3 scale.
+	// scale invented it — and it has no counterpart in the current scale.
 	//
 	// Deprecated: use github.com/vibrantgio/theme/tokens.Typography
 	// instead; it has no exact counterpart there, and the nearest role is

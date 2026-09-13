@@ -17,11 +17,11 @@ import exactly these two modules together — the workbench applications used
 to as well, until F1 moved them onto the theme's typography.
 
 **This module is frozen.** It is the Material Design 2 scale, and Vibrant Gio
-targets MD3; more importantly the scale is a package-level table rather than a
+has moved on from it; more importantly the scale is a package-level table rather than a
 theme value, so it cannot vary with the theme, the platform or the user's
 preferences. ADR-003 supersedes it with the
 [`theme/tokens`](https://github.com/vibrantgio/theme) `Typography` theme
-token, and every symbol here carries a `Deprecated:` marker naming its MD3
+token, and every symbol here carries a `Deprecated:` marker naming its
 replacement. The module was kept for the deprecation window so existing
 imports kept compiling; nothing here will be extended, and only correctness
 fixes land — see Status before building on it.
@@ -81,7 +81,7 @@ the twelve heading and label styles cap at one line.
 ## Usage
 
 Nothing new should be written against this module — a Vibrant Gio application
-takes its typography from the theme (`Typography.Shaper()` and the MD3 roles;
+takes its typography from the theme (`Typography.Shaper()` and the type roles;
 see the [theme](https://github.com/vibrantgio/theme) README). This
 section documents the pattern the remaining consumers use.
 
@@ -135,7 +135,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   be.** No library source file in components, effects, patterns, markdown or theme
   imports style; the components style their text from the
   `theme/tokens.Typography` theme token Phase C shipped — typeface, weight,
-  size, line height and tracking per MD3 role, plus the one shared shaper —
+  size, line height and tracking per type role, plus the one shared shaper —
   and C1.4 marked every symbol here `Deprecated:` with that replacement. An
   application that styles its own text with `H5` and drops a `patterns`
   heading beside it is mixing two type systems; F1 removed the last such
@@ -163,7 +163,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   — is imported by nothing.
 - **`SmallButton` is not an MD2 role.** The MD2 scale has thirteen styles;
   this is a fourteenth, 12 sp Bold, invented here. It has no counterpart in
-  the MD3 `Typography` token either, so there is nothing to migrate it to.
+  the current `Typography` token either, so there is nothing to migrate it to.
 - **Only `BodyText1` and `BodyText2` wrap.** Every other style sets
   `MaxLines: 1`, so a heading longer than its box is silently truncated with an
   ellipsis rather than flowing. That is usually what a heading wants and never
