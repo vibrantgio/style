@@ -13,8 +13,8 @@ are ready-made `textdraw.TextStyle` values — a font, a size, an alignment, a
 line limit and a truncator — to hand to
 [textdraw](https://github.com/vibrantgio/textdraw)'s drawing calls. That is
 why the example programs in the organization that still draw text this way
-import exactly these two modules together — the workbench applications used
-to as well, until F1 moved them onto the theme's typography.
+import exactly these two modules together — the applications used to as
+well, until F1 moved them onto the theme's typography.
 
 **This module is frozen.** It is the Material Design 2 scale, and Vibrant Gio
 has moved on from it; more importantly the scale is a package-level table rather than a
@@ -47,8 +47,7 @@ layering check permits that single edge rather than renumbering the tier. The
 
 Nothing inside the design system imports style — not components, not patterns, not
 markdown. Its consumers were all applications, and most of them are gone: F1
-migrated every [workbench](https://github.com/vibrantgio/workbench)
-application and every `mvu/example` program off it. What remains is eleven
+migrated every application and every `mvu/example` program off it. What remains is eleven
 example mains in the support repositories — four under
 `ivg/raster/gio/example`, three under `svg/driver/gio/example` and the four
 `traer/gio` demos. F3.4 archived the repository with those still pointing at
@@ -112,11 +111,8 @@ layout.UniformInset(12).Layout(gtx, textdraw.Text(shaper, style.H4, 1.0, 1.0, Gr
 
 ## For coding assistants
 
-Read the canonical guide before writing code against this module — the module
-inventory with current tags, the application skeleton, MVU and rx semantics,
-typography, and the pitfalls that are not guessable:
-
-<https://raw.githubusercontent.com/vibrantgio/workbench/master/llms.txt>
+Read the org guide before you write code against this module: the plan
+root's [`AGENTS.md`](https://github.com/vibrantgio/.github/blob/master/AGENTS.md).
 
 [`AGENTS.md`](./AGENTS.md) in this repository has the build and test commands.
 
@@ -139,7 +135,7 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   and C1.4 marked every symbol here `Deprecated:` with that replacement. An
   application that styles its own text with `H5` and drops a `patterns`
   heading beside it is mixing two type systems; F1 removed the last such
-  mixture from the workbench applications.
+  mixture from the applications.
 - **`H2` was 96 sp until C1.4 — the same as `H1`.** MD2's H2 is 60, and the
   two differed only in weight — Thin and Light — so a document using both got
   no size hierarchy at all. It is 60 now, which means a program pinned to a
