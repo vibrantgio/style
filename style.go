@@ -78,7 +78,7 @@ var (
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	BodyText2 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 14, MaxLines: 0, Truncator: "…"}
 
-	// Button is the MD2 button label: 14 sp Medium, single line.
+	// Button is the MD2 button title: 14 sp Medium, single line.
 	//
 	// Deprecated: use the LabelLarge role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
