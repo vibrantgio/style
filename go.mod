@@ -3,8 +3,8 @@ module github.com/vibrantgio/style
 go 1.25.1
 
 require (
-	github.com/vibrantgio/font v0.4.3
-	github.com/vibrantgio/textdraw v0.0.6
+	github.com/vibrantgio/font v0.4.4
+	github.com/vibrantgio/textdraw v0.0.7
 )
 
 require (
