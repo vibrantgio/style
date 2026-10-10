@@ -12,47 +12,36 @@ returns the Roboto faces to build a `*text.Shaper` from, and `H1` … `Overline`
 are ready-made `textdraw.TextStyle` values — a font, a size, an alignment, a
 line limit and a truncator — to hand to
 [textdraw](https://github.com/vibrantgio/textdraw)'s drawing calls. That is
-why the example programs in the organization that still draw text this way
-import exactly these two modules together — the applications used to as
-well, until F1 moved them onto the theme's typography.
+why the example programs in the organization that draw text this way import
+exactly these two modules together.
 
-**This module is frozen.** It is the Material Design 2 scale, and Vibrant Gio
-has moved on from it; more importantly the scale is a package-level table rather than a
-theme value, so it cannot vary with the theme, the platform or the user's
-preferences. ADR-003 supersedes it with the
+**This module is frozen.** It is the Material Design 2 scale, a
+package-level table rather than a theme value, so it cannot vary with the
+theme, the platform or the user's preferences. Type in a Vibrant Gio
+application comes from the
 [`theme/tokens`](https://github.com/vibrantgio/theme) `Typography` theme
-token, and every symbol here carries a `Deprecated:` marker naming its
-replacement. The module was kept for the deprecation window so existing
-imports kept compiling; nothing here will be extended, and only correctness
-fixes land — see Status before building on it.
+token, which every symbol here names in its `Deprecated:` marker. Nothing
+here will be extended — see Status before building on it.
 
-**The window is closed.** F3.4 of the
-[org plan](https://github.com/vibrantgio/.github) landed on 2026-08-06 and
-ended it. G-F1 had already moved the last in-org consumers off this module,
-so there was nothing left to sweep: the deprecation shims other repositories
-carried were deleted in their own major releases, and style, which is
-nothing *but* deprecated surface, is instead **archived at v0.0.6**. It is
-frozen there and will never be re-tagged. The freeze ends by archival, not
-deletion — the v0.0.6 tag and the import path keep resolving forever; the
-repository just stops changing. There will be no v0.0.7.
+**The module is archived at v0.0.6.** It is frozen there and will never be
+re-tagged: the tag and the import path keep resolving forever, and the
+repository stops changing. There will be no v0.0.7.
 
 ## Where it sits
 
 Tier 0 of the stack — `mvu → theme → components → effects → patterns → markdown` —
-and the one intra-tier edge ADR-001's table has to admit by name: style imports
+and the one intra-tier edge the tier table has to admit by name: style imports
 [font](https://github.com/vibrantgio/font) and
 [textdraw](https://github.com/vibrantgio/textdraw), both also tier 0. The
 layering check permits that single edge rather than renumbering the tier. The
 [organization page](https://github.com/vibrantgio) has the full tier table.
 
 Nothing inside the design system imports style — not components, not patterns, not
-markdown. Its consumers were all applications, and most of them are gone: F1
-migrated every application and every `mvu/example` program off it. What remains is eleven
-example mains in the support repositories — four under
-`ivg/raster/gio/example`, three under `svg/driver/gio/example` and the four
-`traer/gio` demos. F3.4 archived the repository with those still pointing at
-v0.0.6, which keeps resolving after archival — which is the whole point of
-archiving rather than deleting.
+markdown. Its consumers are eleven example mains in the support
+repositories — four under `ivg/raster/gio/example`, three under
+`svg/driver/gio/example` and the four `traer/gio` demos — and they point at
+v0.0.6, which keeps resolving: that is what archiving rather than deleting
+is for.
 
 ```sh
 go get github.com/vibrantgio/style
@@ -121,25 +110,15 @@ root's [`AGENTS.md`](https://github.com/vibrantgio/.github/blob/master/AGENTS.md
 Honest about what does not work yet. Every number below is measured against the
 source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
 
-- **This module is archived at v0.0.6 and frozen there.** ADR-003 opened a
-  deprecation window on it; F3.4 closed the window by archiving the
-  repository rather than sweeping it, because by then G-F1 had moved the
-  last in-org consumer off it and there was nothing left to remove that
-  removing the whole module did not already cover. Every item below is
-  therefore permanent, not pending.
-- **This module was never wired into the component stack, and now never will
-  be.** No library source file in components, effects, patterns, markdown or theme
-  imports style; the components style their text from the
-  `theme/tokens.Typography` theme token Phase C shipped — typeface, weight,
-  size, line height and tracking per type role, plus the one shared shaper —
-  and C1.4 marked every symbol here `Deprecated:` with that replacement. An
-  application that styles its own text with `H5` and drops a `patterns`
-  heading beside it is mixing two type systems; F1 removed the last such
-  mixture from the applications.
-- **`H2` was 96 sp until C1.4 — the same as `H1`.** MD2's H2 is 60, and the
-  two differed only in weight — Thin and Light — so a document using both got
-  no size hierarchy at all. It is 60 now, which means a program pinned to a
-  version before the fix draws `H2` at 96, not the 60 this README documents.
+- **This module is archived at v0.0.6 and frozen there.** Every item below
+  is permanent, not pending.
+- **This module is not wired into the component stack.** No library source
+  file in components, effects, patterns, markdown or theme imports style; the
+  components style their text from the `theme/tokens.Typography` theme token
+  — typeface, weight, size, line height and tracking per type role, plus the
+  one shared shaper — which every symbol here names in its `Deprecated:`
+  marker. An application that styles its own text with `H5` and drops a
+  `patterns` heading beside it is mixing two type systems.
 - **The scale cannot vary.** These are package-level `var`s, so there is one
   scale per binary: no theme, no density, no platform and no accessibility
   preference can change a size. `theme/a11y` publishes the OS text-scaling
@@ -152,9 +131,9 @@ source, not estimated. None of it will be fixed: v0.0.6 is the last tag.
   `FontFacesWithItalic`, and no way to extend the collection except building
   the slice yourself.
 - **Eleven of the fourteen styles have no consumer anywhere in the
-  organization.** After the F1 migration only `H3` (4 call sites), `H4` (4)
-  and `H5` (7) are still drawn with, all in the support repositories'
-  example programs; `FontFaces` keeps its 11 call sites in the same programs.
+  organization.** Only `H3` (4 call sites), `H4` (4) and `H5` (7) are drawn
+  with, all in the support repositories' example programs; `FontFaces` keeps
+  its 11 call sites in the same programs.
   Everything else — every subtitle, body, button, caption and overline style
   — is imported by nothing.
 - **`SmallButton` is not an MD2 role.** The MD2 scale has thirteen styles;
