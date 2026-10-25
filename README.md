@@ -85,9 +85,9 @@ layout.UniformInset(12).Layout(gtx, textdraw.Text(shaper, style.H4, 1.0, 1.0, Gr
 
 ## For coding assistants
 
-Read the org guide before you write code against this module: the plan
-root's [`AGENTS.md`](https://github.com/vibrantgio/organisation/blob/master/AGENTS.md).
-The build and test commands are reached from that file.
+Read this repository's [AGENTS.md](./AGENTS.md) before you write code against this module.
+
+Build and test the root module with `go build ./...` and `go test ./...`.
 
 ## Status
 
