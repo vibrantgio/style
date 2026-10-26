@@ -20,87 +20,86 @@ import (
 var (
 	// H1 is the MD2 headline 1: 96 sp Thin, single line.
 	//
-	// Deprecated: use the DisplayLarge role of
+	// Deprecated: use the LargeTitle role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H1 = textdraw.TextStyle{Font: thin.Font, Alignment: textdraw.Start, Size: 96, MaxLines: 1, Truncator: "…"}
 
 	// H2 is the MD2 headline 2: 60 sp Light, single line.
 	//
-	// Deprecated: use the DisplayMedium role of
+	// Deprecated: use the LargeTitle role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H2 = textdraw.TextStyle{Font: light.Font, Alignment: textdraw.Start, Size: 60, MaxLines: 1, Truncator: "…"}
 
 	// H3 is the MD2 headline 3: 48 sp Normal, single line.
 	//
-	// Deprecated: use the DisplaySmall role of
+	// Deprecated: use the Title1 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H3 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 48, MaxLines: 1, Truncator: "…"}
 
 	// H4 is the MD2 headline 4: 34 sp Normal, single line.
 	//
-	// Deprecated: use the HeadlineMedium role of
+	// Deprecated: use the Title3 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H4 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 34, MaxLines: 1, Truncator: "…"}
 
 	// H5 is the MD2 headline 5: 24 sp Normal, single line.
 	//
-	// Deprecated: use the HeadlineSmall role of
+	// Deprecated: use the Headline role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H5 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 24, MaxLines: 1, Truncator: "…"}
 
 	// H6 is the MD2 headline 6: 20 sp Normal, single line.
 	//
-	// Deprecated: use the TitleLarge role of
+	// Deprecated: use the Title1 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	H6 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 20, MaxLines: 1, Truncator: "…"}
 
 	// Subtitle1 is the MD2 subtitle 1: 16 sp Normal, single line.
 	//
-	// Deprecated: use the TitleMedium role of
+	// Deprecated: use the Title2 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	Subtitle1 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 16, MaxLines: 1, Truncator: "…"}
 
 	// Subtitle2 is the MD2 subtitle 2: 14 sp Medium, single line.
 	//
-	// Deprecated: use the TitleSmall role of
+	// Deprecated: use the Title3 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	Subtitle2 = textdraw.TextStyle{Font: medium.Font, Alignment: textdraw.Start, Size: 14, MaxLines: 1, Truncator: "…"}
 
 	// BodyText1 is the MD2 body 1: 16 sp Normal, wrapping.
 	//
-	// Deprecated: use the BodyLarge role of
+	// Deprecated: use the Body role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	BodyText1 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 16, MaxLines: 0, Truncator: "…"}
 
 	// BodyText2 is the MD2 body 2: 14 sp Normal, wrapping.
 	//
-	// Deprecated: use the BodyMedium role of
+	// Deprecated: use the Callout role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	BodyText2 = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 14, MaxLines: 0, Truncator: "…"}
 
 	// Button is the MD2 button title: 14 sp Medium, single line.
 	//
-	// Deprecated: use the LabelLarge role of
+	// Deprecated: use the SystemFont role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	Button = textdraw.TextStyle{Font: medium.Font, Alignment: textdraw.Start, Size: 14, MaxLines: 1, Truncator: "…"}
 
 	// Caption is the MD2 caption: 12 sp Normal, single line.
 	//
-	// Deprecated: use the BodySmall role of
+	// Deprecated: use the Caption1 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	Caption = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 12, MaxLines: 1, Truncator: "…"}
 
-	// SmallButton is 12 sp Bold, single line. It is not an MD2 role — this
-	// scale invented it — and it has no counterpart in the current scale.
+	// SmallButton is 12 sp Bold, single line. It is not an MD2 role; this
+	// scale invented it.
 	//
-	// Deprecated: use github.com/vibrantgio/theme/tokens.Typography
-	// instead; it has no exact counterpart there, and the nearest role is
-	// LabelMedium, 12 dp Medium.
+	// Deprecated: use the SmallSystemFont role of
+	// github.com/vibrantgio/theme/tokens.Typography instead.
 	SmallButton = textdraw.TextStyle{Font: bold.Font, Alignment: textdraw.Start, Size: 12, MaxLines: 1, Truncator: "…"}
 
 	// Overline is the MD2 overline: 10 sp Normal, single line.
 	//
-	// Deprecated: use the LabelSmall role of
+	// Deprecated: use the Caption1 role of
 	// github.com/vibrantgio/theme/tokens.Typography instead.
 	Overline = textdraw.TextStyle{Font: normal.Font, Alignment: textdraw.Start, Size: 10, MaxLines: 1, Truncator: "…"}
 )
